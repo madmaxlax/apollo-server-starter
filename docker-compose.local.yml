@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  server:
+    container_name: apollo-server-ts-starter
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3002:3002'
+      - '9229:9229'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=3002
+    tty: true
+    command: ["yarn", "start:dev-remote-debug"]
+# networks:
+#   default:
+#     external:
+#       name: apollo-server-ts-starter_default

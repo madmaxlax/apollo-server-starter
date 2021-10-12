@@ -1,0 +1,90 @@
+{
+  "name": "apollo-server-typescript-starter",
+  "version": "0.0.1",
+  "description": "'TypeScript Apollo Server starter repo",
+  "scripts": {
+    "start": "node 'dist/start.js'",
+    "start:dev": "nodemon --inspect -r dotenv/config ./src/start.ts -e ts,graphql dotenv_config_path=./.env.local",
+    "start:dev-remote-debug": "nodemon --inspect='0.0.0.0' -r dotenv/config ./src/start.ts -e ts,graphql dotenv_config_path=./.env.local",
+    "build": "tsc -p .",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext ts",
+    "lint:fix": "eslint . --ext ts --fix"
+  },
+  "dependencies": {
+    "apollo-datasource-rest": "^0.8.1",
+    "apollo-server": "^2.12.17",
+    "chance": "^1.1.4",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "husky": "^4.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.forin": "^4.4.0",
+    "lodash.includes": "^4.3.0",
+    "lodash.snakecase": "^4.1.1",
+    "mime": "^2.4.6",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.0.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/chance": "^1.0.10",
+    "@types/jest": "^25.2.1",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/lodash.camelcase": "^4.3.0",
+    "@types/lodash.foreach": "^4.5.0",
+    "@types/lodash.forin": "^4.4.0",
+    "@types/lodash.includes": "^4.3.0",
+    "@types/lodash.snakecase": "^4.1.1",
+    "@types/node": "^12.12.31",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "apollo-server-testing": "^2.12.0",
+    "class-validator": "^0.12.2",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.1",
+    "lint-staged": "^10.0.8",
+    "nock": "^12.0.3",
+    "nodemon": "^2.0.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "ts-jest": "^25.4.0",
+    "ts-node": "^8.8.2",
+    "yarn": "^1.22.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./utils/precommitcheck.sh"
+    }
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "preset": "ts-jest"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "node",
+    "express",
+    "graphql",
+    "apollo server",
+    "typegraphql"
+  ]
+}
